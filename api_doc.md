@@ -36,10 +36,6 @@
 > Updates parts or the entire post
 * Responds with status code 200.
 
-### `PUT` `/board/:thread/comment/:id`
-> Updates parts or the entire comment
-* Responds with status code 200.
-
 
 #### Stretch Endpoints
 
