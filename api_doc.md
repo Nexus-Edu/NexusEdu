@@ -36,6 +36,10 @@
 > Updates parts or the entire post
 * Responds with status code 200.
 
+### `DELETE` `/board/post/:id`
+> Deletes the post
+* Responds with status code 200.
+
 
 #### Stretch Endpoints
 
