@@ -28,16 +28,8 @@
 > Displays all the posts on the discussion board
 * Responds with status code 200.
 
-### `GET` `/board/:thread`
-> Displays selected thread
-* Responds with status code 200.
-
 ### `POST` `/board/post`
 > Creates a post along the board
-* Responds with status code 201.
-
-### `POST` `/board/:thread/comment`
-> Creates a comment to a post. If this comment happens to be the first one, it starts the thread
 * Responds with status code 201.
 
 ### `PUT` `/board/post/:id`
