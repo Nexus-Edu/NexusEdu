@@ -25,7 +25,7 @@
 
 ##  Discussion Board
 ### `GET` `/board`
-> Displays the discussion board
+> Displays all the posts on the discussion board
 * Responds with status code 200.
 
 ### `GET` `/board/:thread`
