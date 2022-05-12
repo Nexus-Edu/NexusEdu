@@ -16,6 +16,6 @@ router.post('/board/post', addPost)
 router.put('/board/post/:id', updatePost)
 router.delete('/board/post/:id', deletePost)
 //programs
-router.post('/program', showProgramInfo)
+router.post('/program', enterProgramInfo)
 router.put('/program/:id', updateProgramInfo)
 router.get('/program', displayProgramInfo)
