@@ -51,7 +51,7 @@ const enterProgramInfo = (req, res) =>{
 //will update the program info
 const updateProgramInfo = (req, res) =>{
 
-}
+ }
 
 //will display program info
 const displayProgramInfo = (req, res) =>{
