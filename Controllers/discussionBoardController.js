@@ -1,8 +1,8 @@
 const DiscussionBoard = require("../Models/dicussionBoardModel");
 
-
-//will display board for users
- async function displayBoard(req, res) {
+// Displays all the posts on the discussion board
+// GET
+async function displayAllPost(req, res) {
     try {
         const allPost = await DiscussionBoard.displayAllPost();
         res.status(200).json(allPost);
@@ -11,23 +11,26 @@ const DiscussionBoard = require("../Models/dicussionBoardModel");
     }
 }
 
-//will add posts to the board
-const addPost = (req, res) => {
+// Creates a post along the board
+// POST
+async function addPost(req, res) {
 
 }
 
-//will update the post
-const updatePost = (req, res) => {
+// Updates parts or the entire post
+// PUT
+async function updatePost(req, res) {
 
 }
 
-//will delete the post
-const deletePost = (req, res) => {
+// Deletes the post
+// DELETE
+async function deletePost(req, res) {
 
 }
 
 module.exports = {
-    displayBoard,
+    displayAllPost,
     addPost,
     updatePost,
     deletePost,

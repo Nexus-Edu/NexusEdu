@@ -52,6 +52,9 @@
 *
 
 ##  Programs
+### `GET` `/program`
+> Displays all programs
+* Responds with status code 201.
 ### `POST` `/program`
 > Creates a list item which contains the program information you want to share
 * Responds with status code 201.
@@ -60,6 +63,6 @@
 > Updates parts or the entire program item
 * Responds with status code 200.
 
-### `GET` `/program`
-> Displays all programs
-* Responds with status code 201.
+### `DELETE` `/program/:id`
+> Deletes a program
+* Responds with status code 200.
