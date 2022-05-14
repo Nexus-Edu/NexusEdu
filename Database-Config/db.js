@@ -4,7 +4,7 @@ const { Pool } = require('pg')
 const pool = new Pool({
     user: 'example',
     password: 'code',
-    database: 'nShape'
+    database: 'NexusEdu'
 })
 
 module.exports = pool
