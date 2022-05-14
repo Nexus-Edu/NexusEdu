@@ -1,0 +1,28 @@
+{
+  "name": "nexusedu-backend-repo",
+  "version": "1.0.0",
+  "description": "NexusEdu provides our users with a vast variety of information that can help them change careers and find other ways of learning.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nexus-Edu/NexusEdu-Backend-Repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nexus-Edu/NexusEdu-Backend-Repo/issues"
+  },
+  "homepage": "https://github.com/Nexus-Edu/NexusEdu-Backend-Repo#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "knex": "^1.0.4",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3"
+  }
+}
