@@ -1,6 +1,14 @@
+const DiscussionBoard = require("../Models/dicussionBoardModel");
+
+
 //will display board for users
-const displayBoard = (req, res) => {
-    res.send('Hello Wolfgang')
+ async function displayBoard(req, res) {
+    try {
+        const allPost = await DiscussionBoard.displayAllPost();
+        res.status(200).json(allPost);
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
 }
 
 //will add posts to the board
