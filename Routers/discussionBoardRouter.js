@@ -1,12 +1,16 @@
 const express = require("express");
 const router = express.Router()
 
-const { displayBoard, addPost, updatePost, deletePost } = require("../Controllers/discussionBoardController")
+// Controller Imports 
+const { displayAllPost, addPost, updatePost, deletePost } = require("../Controllers/discussionBoardController")
 
-//discussion board
-router.get('/', displayBoard)
+// /board
+router.get('/', displayAllPost)
+// board/post
 router.post('/post', addPost)
+// board/post/:id
 router.put('/post/:id', updatePost)
+// board/post/:id
 router.delete('/post/:id', deletePost)
 
 module.exports = router;

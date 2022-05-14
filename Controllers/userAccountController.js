@@ -1,9 +1,12 @@
-const login = (req, res) => {
+// Allows customers to login into their already created user account
+// POST
+async function login(req, res) {
 
 }
 
-//will invoke the sign up fucntion   
-const signUp = (res, req) => {
+// Allows customers to create a user account   
+// POST
+async function signUp(res, req) {
 
 }
 

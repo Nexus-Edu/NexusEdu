@@ -1,10 +1,12 @@
-//will display user information
-const displayUserInfo = (req, res) => {
+// Gets all user account information
+// GET request
+async function displayUserInfo(req, res) {
 
 }
 
-//will update users information
-const updateInfo = (req, res) => {
+// Edit updates all or specific parts of a user's account
+// PUT request
+async function updateInfo(req, res) {
 
 }
 
