@@ -35,7 +35,7 @@ async function updatePost(req, res) {
     const id = req.params.id;
     const { message, hashtag } = req.body; 
 
-    const findPost = await pool.query('SELECT * FROM posts WHERE post_id = $1', [id]);
+    const findPost = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
 
     if (findPost.rows.length === 0) {
         return res.status(404).json({ message: 'Post not found' })

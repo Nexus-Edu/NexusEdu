@@ -10,10 +10,14 @@ async function getAllUserAccounts(req, res) {
 // GET request
 async function displayUserInfo(req, res) {
     const id = req.params.id;
-    console.log(id)
 
     try {
         const displayUser = await User.displayUserInfo(id);
+        
+        if (displayUser.length === 0) {
+            return res.status(404).json({ message: `User ${id} does not exist` });
+        }
+
         res.status(200).json(displayUser);
     } catch (err) {
         res.status(500).send({ message: err.message })

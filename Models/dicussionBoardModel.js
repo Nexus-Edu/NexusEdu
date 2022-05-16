@@ -2,7 +2,7 @@ const pool = require('../Database-Config/db');
 
 class DiscussionBoard {
     static async displayAllPost() {
-        const databaseResult = await pool.query('SELECT * FROM posts ORDER BY post_id DESC');
+        const databaseResult = await pool.query('SELECT * FROM posts ORDER BY id DESC');
         return databaseResult.rows;
     }
 
@@ -12,15 +12,15 @@ class DiscussionBoard {
     }
 
     static async updatePost(id, message, hashtag) {
-        const databaseResult = await pool.query('UPDATE posts SET message = $2, hashtag = $3 WHERE post_id = $1', [id, message, hashtag]);
+        const databaseResult = await pool.query('UPDATE posts SET message = $2, hashtag = $3 WHERE id = $1', [id, message, hashtag]);
 
-        const searchResult = await pool.query('SELECT * FROM posts WHERE post_id = $1', [id]);
+        const searchResult = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
 
         return searchResult.rows[0];
     }
 
     static async deletePost(id) {
-        const databaseResult = await pool.query('DELETE FROM posts WHERE post_id = $1', [id]);
+        const databaseResult = await pool.query('DELETE FROM posts WHERE id = $1', [id]);
         return databaseResult.rows[0]
     }
 }

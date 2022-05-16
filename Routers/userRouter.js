@@ -8,6 +8,8 @@ const { displayUserInfo, updateInfo, getAllUserAccounts } = require('../Controll
 // A Route used to get all user account information
 // Delete route when project is done
 router.get('/', getAllUserAccounts)
+
+
 // user/:id
 router.get('/:id', displayUserInfo)
 // user/:id/update

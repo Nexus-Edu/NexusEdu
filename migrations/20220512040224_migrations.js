@@ -4,12 +4,12 @@
  */
 exports.up = function(knex) {
   return knex.schema.createTable('users', table => {
-      table.increments('user_id');
+      table.increments('id').primary();
       table.string('username').notNullable();
       table.string('password').notNullable();
       table.string('email').notNullable();
-      table.foreign('post_id'); 
-      table.foreign('comment_id'); 
+      table.integer('post_id').references('id').inTable('posts').notNullable(); 
+      table.integer('comment_id').references('id').inTable('comments').notNullable(); 
       table.string('first_name').notNullable();
       table.string('last_name').notNullable();
       table.integer('age').notNullable();
@@ -17,24 +17,6 @@ exports.up = function(knex) {
       table.string('image').notNullable();
       table.string('bio').notNullable();
   })
-  /*
-    The username should be `foregin` as a post is created by the user. For now, we'll hardcode the username
-  */
-  .createTable('posts', table => {
-    table.increments('post_id');
-    table.foreign('comment_id');
-    table.string('hashtag');
-    table.date('date');
-    table.string('username');
-    table.string('message').notNullable();
-  })
-  .createTable('comments', table => {
-    table.increments('comment_id');
-    table.foreign('post_id');
-    table.string('username');
-    table.date('date');
-    table.string('comment');
-})
 };
 
 /**
@@ -42,5 +24,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('users').dropTable('posts').dropTable('comments');
+  return knex.schema.dropTable('users');
 };
