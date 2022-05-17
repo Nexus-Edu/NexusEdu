@@ -9,11 +9,10 @@
 
       table.integer('post_id').notNullable();
       table.foreign('post_id').references('posts.id'); /// now every user 
-
-      table.string('username').notNullable;
-      table.string('name').notNullable;
+      table.string('username').notNullable();
+      table.string('name').notNullable();
       table.string("image");
-      table.string('comment').notNullable;
+      table.string('comment').notNullable();
       table.timestamp('created_at').defaultTo(knex.fn.now());
   })
   };
