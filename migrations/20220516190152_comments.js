@@ -6,6 +6,10 @@
     return knex.schema
     .createTable('comments', table => {
       table.increments('id', {primaryKey:true});
+
+      table.integer('post_id').notNullable();
+      table.foreign('post_id').references('posts.id'); /// now every user 
+
       table.string('username').notNullable;
       table.string('name').notNullable;
       table.string("image");
