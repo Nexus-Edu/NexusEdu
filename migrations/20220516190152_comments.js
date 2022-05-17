@@ -5,10 +5,12 @@
  exports.up = function(knex) {
     return knex.schema
     .createTable('comments', table => {
-      table.increments('id').primary();
-      table.string('username');
-      table.date('date');
-      table.string('comment');
+      table.increments('id', {primaryKey:true});
+      table.string('username').notNullable;
+      table.string('name').notNullable;
+      table.string("image");
+      table.string('comment').notNullable;
+      table.timestamp('created_at').defaultTo(knex.fn.now());
   })
   };
   
