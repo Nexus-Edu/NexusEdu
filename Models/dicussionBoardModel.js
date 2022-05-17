@@ -2,7 +2,10 @@ const pool = require('../Database-Config/db');
 
 class DiscussionBoard {
     static async displayAllPost() {
-        const databaseResult = await pool.query('SELECT * FROM posts ORDER BY id DESC');
+        const databaseResult = await pool.query(`SELECT posts.hashtag, posts."date", posts.message, users.first_name as name, users.username, users.image as profile_pic FROM posts 
+        join users
+        on users.id = posts.user_id 
+        ORDER BY posts.id DESC;`);
         return databaseResult.rows;
     }
 
