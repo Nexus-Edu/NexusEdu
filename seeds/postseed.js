@@ -6,9 +6,9 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('posts').del()
   await knex('posts').insert([
-    {hashtag: '#welcomeMessage', username: 'example', message: 'Hello NexusEdu Community' },
-      { hashtag: '#education', username: 'example2', message: 'Education for all'}, 
-      { hashtag: '#MarcyLab', username: 'example3', message: 'Marcy Lab is cool'}, 
-      { hashtag: '#elements', username: 'example4', message: 'Elements of the world, unite'}
+    {hashtag: '#welcomeMessage', user_id: 1, message: 'Hello NexusEdu Community' },
+      { hashtag: '#education', user_id: 1, message: 'Education for all'}, 
+      // { hashtag: '#MarcyLab', user_id: 1, message: 'Marcy Lab is cool'}, 
+      // { hashtag: '#elements', user_id: 1, message: 'Elements of the world, unite'}
   ]);
 };
