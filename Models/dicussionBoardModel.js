@@ -2,15 +2,15 @@ const pool = require('../Database-Config/db');
 
 class DiscussionBoard {
     static async displayAllPost() {
-        const databaseResult = await pool.query(`SELECT posts.hashtag, posts."date", posts.message, users.first_name as name, users.username, users.image as profile_pic FROM posts 
+        const databaseResult = await pool.query(`SELECT posts.id, posts.hashtag, posts."date", posts.message, users.first_name as name, users.username, users.image as profile_pic FROM posts 
         join users
         on users.id = posts.user_id 
         ORDER BY posts.id DESC;`);
         return databaseResult.rows;
     }
 
-    static async addPost(message, hashtag) {
-        const databaseResult = await pool.query('INSERT into posts (message, hashtag) values ($1, $2) returning *', [message, hashtag]);
+    static async addPost(message, hashtag, user_id) {
+        const databaseResult = await pool.query('INSERT into posts (message, hashtag, user_id) values ($1, $2, $3) returning *', [message, hashtag, user_id]);
         return databaseResult.rows[0];
     }
 

@@ -7,10 +7,10 @@ const { displayAllPost, addPost, updatePost, deletePost } = require("../Controll
 // /board
 router.get('/', displayAllPost)
 // board/post
-router.post('/post', addPost)
+router.post('/post', addPost) /// this can be cleaned up 
 // board/post/:id
 router.put('/post/:id', updatePost)
 // board/post/:id
-router.delete('/post/:id', deletePost)
+router.delete('/post', deletePost)
 
 module.exports = router;

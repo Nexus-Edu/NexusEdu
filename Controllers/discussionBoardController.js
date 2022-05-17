@@ -15,14 +15,14 @@ async function displayAllPost(req, res) {
 // Creates a post along the board
 // POST
 async function addPost(req, res) {
-    const { message, hashtag } = req.body; 
+    const { message, hashtag, user_id } = req.body; 
 
     if(!message || !hashtag) {
         return res.status(404).send({ message: "Please enter a message or hashtag" });
     }
 
     try {
-        const createPost = await DiscussionBoard.addPost(message, hashtag);
+        const createPost = await DiscussionBoard.addPost(message, hashtag, user_id);
         res.status(201).json(createPost);
     } catch (err) {
         res.status(500).send({ message: err.message });
@@ -30,7 +30,7 @@ async function addPost(req, res) {
 }
 
 // Updates parts or the entire post
-// PUT
+// PUT // leo: this is not gonna be implemented 
 async function updatePost(req, res) {
     const id = req.params.id;
     const { message, hashtag } = req.body; 
@@ -53,7 +53,7 @@ async function updatePost(req, res) {
 // Deletes the post
 // DELETE
 async function deletePost(req, res) {
-    const id = req.params.id;
+    const id = req.body.id;  /// we will send the post we want to deleate in the body. 
 
     if (!id) {
         return res.status(404).json({ message: 'Goal not found' })
