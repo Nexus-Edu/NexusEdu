@@ -53,7 +53,7 @@ async function updatePost(req, res) {
 // Deletes the post
 // DELETE
 async function deletePost(req, res) {
-    const id = req.body.id;  /// we will send the post we want to deleate in the body. 
+    const id = req.params.id;  /// we will send the post we want to deleate in the body. 
 
     if (!id) {
         return res.status(404).json({ message: 'Goal not found' })
