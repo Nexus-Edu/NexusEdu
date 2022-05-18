@@ -70,7 +70,8 @@ age, -> must be a number
 birthday, -> this must be in date format to be succesful  ("11/11/1111/")
 image, 
 bio,
-password
+password,
+username
 }
 
 * Respond: update userinfo in the form of an array 
