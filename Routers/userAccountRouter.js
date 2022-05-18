@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../Database-Config/db');
 
 // Controller Imports
-const { login, signUp } = require("../Controllers/userAccountController");
+// const { login, signUp } = require("../Controllers/userAccountController");
 // const { password } = require("pg/lib/defaults");
 
 
@@ -59,7 +59,7 @@ router.put('/updateUserInfo/:id', async (req,res) => {
 
         const updatedUserData = Object.assign(user, body);
 
-        const response = await pool.query('UPDATE users SET email = $2, first_name = $3, last_name = $4, age = $5, birthday = $6, image = $7, bio = $8, password = $9 WHERE id = $1', [id, updatedUserData.email, updatedUserData.first_name, updatedUserData.last_name, updatedUserData.age, updatedUserData.birthday, updatedUserData.image, updatedUserData.bio, updatedUserData.password])
+        const response = await pool.query('UPDATE users SET email = $2, first_name = $3, last_name = $4, age = $5, birthday = $6, image = $7, bio = $8, password = $9, username = $10 WHERE id = $1', [id, updatedUserData.email, updatedUserData.first_name, updatedUserData.last_name, updatedUserData.age, updatedUserData.birthday, updatedUserData.image, updatedUserData.bio, updatedUserData.password, updatedUserData.username])
 
         res.status(201).json({ response: response.rows });
     } catch (err){
