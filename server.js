@@ -17,11 +17,13 @@ const userRouter = require('./Routers/userRouter')
 const userAccountRouter = require('./Routers/userAccountRouter')
 const discussionRouter = require('./Routers/discussionBoardRouter')
 const programRouter = require('./Routers/programsRouter')
+const commentsRouter = require('./Routers/commentsRoute')
 
 app.use('/user', userRouter)
 app.use(userAccountRouter)
 app.use('/board', discussionRouter)
 app.use('/program', programRouter)
+app.use("/comments",commentsRouter); 
 
 
 app.listen(PORT, () =>{

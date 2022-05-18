@@ -110,6 +110,34 @@ This is only requires the id of the post in the params
 * Responds with status code 200.
 
 
+
+## Comments Page
+### `GET` `/:id`
+> Display all comments assoicated with post
+This will require that the post id be included inside of the params
+* Repsonse : you will get back an array of all comments that are associted to the given post. 
+
+### `POST` `/makeComment`
+> Post a new comment to that given post
+
+This will require that you send: {
+    {
+    "user_id" : 1, 
+    "post_id" : 1, 
+    "comment" : "#hello"
+    }
+}
+in the body. This data is a must inorder to create a comment 
+
+* Response: the comment you just created. 
+
+### `DELETE` `/delete/:id`
+> Delete a comment 
+
+This will require that you pass the comments id in the params.
+
+* Response: 204 status code.   
+
 #### Stretch Endpoints
 
 ##  Chat
