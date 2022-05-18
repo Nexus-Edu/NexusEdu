@@ -4,11 +4,14 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('posts', table => {
-    table.increments('id').primary();
-    table.integer('comment_id').references('id').inTable('comments').notNullable();
+    table.increments('id', {primaryKey:true});
+    // table.integer('comment_id').references('id').inTable('comments').notNullable();
+    table.integer('user_id').notNullable();
+    table.foreign('user_id').references('users.id'); /// now every user 
+
     table.string('hashtag');
-    table.date('date');
-    table.string('username');
+    table.timestamp('date').defaultTo(knex.fn.now());
+    // table.string('username').notNullable();
     table.string('message').notNullable();
   })
 };

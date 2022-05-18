@@ -8,18 +8,18 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'NexusEdu',
-      user:     'example',
-      password: 'code'
+      database: 'nexusedu',
+      user:     'leo',
+      password: '1'
     }
   },
 
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'nexusedu',
+      user:     'leo',
+      password: '1'
     },
     pool: {
       min: 2,
@@ -33,9 +33,9 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'nexusedu',
+      user:     'leo',
+      password: '1'
     },
     pool: {
       min: 2,
