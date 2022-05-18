@@ -15,6 +15,8 @@ router.get('/', getAllUserAccounts)
 // user/:id
 router.get('/:id', displayUserInfo)
 // user/:id/update
+
+
 router.put('/:id/update', async (req,res) => {
     const { id } = req.params;
     const body = req.body;
