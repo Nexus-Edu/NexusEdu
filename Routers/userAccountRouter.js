@@ -3,7 +3,8 @@ const router = express.Router();
 const pool = require('../Database-Config/db');
 
 // Controller Imports
-const { login, signUp } = require("../Controllers/userAccountController")
+const { login, signUp } = require("../Controllers/userAccountController");
+// const { password } = require("pg/lib/defaults");
 
 // /login
 router.get('/login/hello', (req,res)=> {
@@ -28,14 +29,12 @@ router.put('/update/:id', async (req,res) => {
     const { id } = req.params;
     const body = req.body;
     try {
-        const customer = await (await pool.query("SELECT * from customers where id = $1;", [id])).rows[0];
+        const user = await (await pool.query("SELECT * from customers where id = $1;", [id])).rows[0];
 
 
-        const newCustomerData = Object.assign(customer, body);
+        const updatedUserData = Object.assign(user, body);
 
-        const response = await pool.query(`UPDATE customers
-        SET first_name = $1, last_name = $2, address = $3, email = $4, password = $5
-        WHERE id = $6  returning *;`, [newCustomerData.first_name, newCustomerData.last_name, newCustomerData.address, newCustomerData.email, newCustomerData.password, id]);
+        const response = await pool.query('UPDATE users SET email = $2, first_name = $3, last_name = $4, age = $5, birthday = $6, image = $7, bio = $8, password = $9 WHERE id = $1', [id, email, first_name, last_name, age, birthday, image, bio, password])
 
         res.status(201).json({ customerUpdata: response.rows });
     } catch (err){
