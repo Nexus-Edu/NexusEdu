@@ -12,13 +12,25 @@ router.get('/login/hello', (req,res)=> {
 })
 
 
-//this could be user 
-router.get("/login/:id", async (req,res) => {
+//this could be user // this is how we login -> 
+router.get("/login", async (req,res) => {
+
+    const {email, password} = req.body;
+
     //this is how we get that person 
-    const id = req.params.id
+    // const id = req.params.id
+/// email will need for log in  
+
     try {
-        const response = await pool.query("SELECT * from users where id = $1;", [id]);
+        const response = await pool.query("SELECT * from users where email = $1;", [email]);
         // must add validator later -> 
+        console.log(response.rows)
+        if (response.rows.length === 0){
+          res.status(404).json({message: "user not found, is that the correct email? "})
+          return
+        }
+
+        /// here is where validation will be inputed 
         res.status(200).json({data: response.rows})
     } catch (err){
         res.status(500).json({ message: `${err.message}` })
