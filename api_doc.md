@@ -6,7 +6,7 @@
 * Responds with status code 200 and object `{"message" : "Success, Thank you for using the Project_Edu API"}`
 
 ##  User Accounts
-### `GET` `/login`
+### `POST` `/login`
 > Allows customers to login into their already created user account
 
 The params will not take anything in

@@ -25,7 +25,7 @@ router.get('/login/hello', (req,res)=> {
 
 
 //this could be user // this is how we login -> 
-router.get("/login", async (req,res) => {
+router.post("/login", async (req,res) => {
 
     const {username, password} = req.body;
 
