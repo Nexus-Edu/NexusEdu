@@ -11,11 +11,11 @@ router.get('/:id', async (req, res) => {
         join users 
         on comments.user_id = users.id
         where comments.post_id = $1
-        ORDER BY posts.id DESC`,[id]);
+        ORDER BY comments.id DESC`,[id]);
         return res.status(200).json({ data: databaseResult.rows })
     }
-    catch {
-        res.status(500).json({ message: `${err.message}` })
+    catch (err){
+        res.status(500).json({ message:`${err.message}` })
     }
 }) 
 
