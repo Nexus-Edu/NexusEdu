@@ -6,6 +6,12 @@ class DiscussionBoard {
         join users
         on users.id = posts.user_id 
         ORDER BY posts.id DESC;`);
+        
+        return databaseResult.rows;
+    }
+
+    static async getSpecificUserPosts(user_id) {
+        const databaseResult = await pool.query(`SELECT posts.id, posts.hashtag, posts."date", posts.message FROM posts WHERE posts.user_id = $1 ORDER BY posts."date" DESC;`, [user_id]);
         return databaseResult.rows;
     }
 

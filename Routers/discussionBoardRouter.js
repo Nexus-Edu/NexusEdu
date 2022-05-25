@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router()
 
 // Controller Imports 
-const { displayAllPost, addPost, updatePost, deletePost } = require("../Controllers/discussionBoardController")
+const { displayAllPost, getSpecificUserPosts, addPost, updatePost, deletePost } = require("../Controllers/discussionBoardController")
 
 // /board
 router.get('/', displayAllPost)
+// /board/:user_id
+router.get('/:user_id', getSpecificUserPosts)
 // board/post
 router.post('/post/', addPost) /// this can be cleaned up 
 // board/post/:id

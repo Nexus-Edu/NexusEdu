@@ -12,6 +12,18 @@ async function displayAllPost(req, res) {
     }
 }
 
+// GET
+async function getSpecificUserPosts (req, res) {
+ const id = req.params.user_id;
+
+ try {
+     const specificPost = await DiscussionBoard.getSpecificUserPosts(id);
+     res.status(200).json(specificPost);
+ } catch (err) {
+     res.status(500).send({ message: err.message });
+ }
+}
+
 // Creates a post along the board
 // POST
 async function addPost(req, res) {
@@ -71,6 +83,7 @@ async function deletePost(req, res) {
 
 module.exports = {
     displayAllPost,
+    getSpecificUserPosts,
     addPost,
     updatePost,
     deletePost,
